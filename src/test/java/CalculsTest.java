@@ -19,7 +19,7 @@ class CalculsTest {
 
     @ParameterizedTest(name="Multiplication de {0} par {1}, resultat attendu {2}")
     @MethodSource("chargerTestMultiplier")
-    public void multiplier(int first, int last, int result) {
+    public static void multiplier(int first, int last, int result) {
         Calculs calculs = new Calculs(first,last);
         assertEquals(result,calculs.multiplier());
     }
