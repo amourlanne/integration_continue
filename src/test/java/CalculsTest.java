@@ -33,11 +33,8 @@ class CalculsTest {
     @ParameterizedTest(name="Addition de {0} par {1}, resultat attendu {2}")
     @CsvFileSource(resources = "/data.csv")
     public void additionner(int first, int last, int result) {
-        Calculs calculs = new Calculs(2,3);
-        assertEquals(5,calculs.additionner());
-
-        calculs = new Calculs(8,3);
-        assertEquals(11,calculs.additionner());
+        Calculs calculs = new Calculs(first,last);
+        assertEquals(result,calculs.additionner());
     }
 
     @Test
