@@ -2,6 +2,7 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -29,8 +30,9 @@ class CalculsTest {
                 Arguments.of(3,4,12));
     }
 
-    @Test
-    public void additionner() {
+    @ParameterizedTest(name="Addition de {0} par {1}, resultat attendu {2}")
+    @CsvFileSource(resources = "/data.csv")
+    public void additionner(int first, int last, int result) {
         Calculs calculs = new Calculs(2,3);
         assertEquals(5,calculs.additionner());
 
