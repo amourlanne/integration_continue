@@ -31,7 +31,7 @@ class CalculsTest {
     }
 
     @ParameterizedTest(name="Addition de {0} par {1}, resultat attendu {2}")
-    @CsvFileSource(resources = "/data.csv")
+    @CsvFileSource(resources = "/additionner_source.csv")
     public void additionner(int first, int last, int result) {
         Calculs calculs = new Calculs(first,last);
         assertEquals(result,calculs.additionner());
