@@ -22,7 +22,6 @@ class CalculsTest {
         assertEquals(result,calculs.multiplier());
     }
 
-    @Parameterized.Parameters
     public static Stream<Arguments> multiplierGetSource() throws Throwable {
         return Stream.of(
                 Arguments.of(2,2,4),
