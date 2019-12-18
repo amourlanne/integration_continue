@@ -17,9 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @RunWith(Parameterized.class)
 class CalculsTest {
 
-    @ParameterizedTest(name="Multiplication numéro {index} : nombre1={0} nombre2={1} resultat attendu={2}")
-    @MethodSource("chargerJeuTest")
-
     @BeforeEach
     void setUp() throws Exception {
     }
@@ -28,13 +25,18 @@ class CalculsTest {
     void tearDown() throws Exception {
     }
 
-    @Test
-    void multiplier() {
-        Calculs calculs = new Calculs(2,3);
-        assertEquals(6,calculs.multiplier());
+    @ParameterizedTest(name="Multiplication de {0} par {1}, resultat attendu {2}")
+    @MethodSource("chargerTestMultiplier")
+    void multiplier(int first, int last, int result) {
+        Calculs calculs = new Calculs(first,last);
+        assertEquals(result,calculs.multiplier());
+    }
 
-        calculs = new Calculs(8,3);
-        assertEquals(24,calculs.multiplier());
+    static Stream<Arguments> chargerTestMultiplier() throws Throwable {
+        return Stream.of(
+                Arguments.of(2,2,4),
+                Arguments.of(3,3,9),
+                Arguments.of(3,4,12));
     }
 
     @Test
@@ -62,12 +64,5 @@ class CalculsTest {
 
         calculs = new Calculs(8,3);
         assertEquals(5,calculs.soustraire());
-    }
-
-    public static Stream<Arguments> chargerJeuTest() throws Throwable {
-        return Stream.of(
-                Arguments.of(2,2,4),
-                Arguments.of(3,3,9),
-                Arguments.of(3,4,10));
     }
 }
