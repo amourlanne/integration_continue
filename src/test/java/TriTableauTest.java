@@ -11,16 +11,12 @@ class TriTableauTest {
     private int tableau[];
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         tableau = new int[]{5, 2, 1, 7, 3, 4, 8, 18, 11};
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void trier() {
+    public void trier() {
         try {
             TriTableau.trier(tableau);
 
@@ -39,7 +35,7 @@ class TriTableauTest {
     }
 
     @Test
-    void triCroissant() {
+    public void triCroissant() {
         TriTableau.triCroissant(tableau);
 
         // retrieve first value
@@ -52,7 +48,7 @@ class TriTableauTest {
     }
 
     @Test
-    void triDecroissant() {
+    public void triDecroissant() {
         TriTableau.triDecroissant(tableau);
 
         // retrieve first value

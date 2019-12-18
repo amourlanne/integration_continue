@@ -11,16 +11,12 @@ class FIFOTest {
     private FIFO fifo;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         fifo = new FIFO();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void add() {
+    public void add() {
         int size = 0;
 
         fifo.add(7);
@@ -37,7 +33,7 @@ class FIFOTest {
     }
 
     @Test
-    void first() {
+    public void first() {
         assertThrows(NoSuchElementException.class, () -> fifo.first());
         // add first element
         fifo.add(5);
@@ -60,7 +56,7 @@ class FIFOTest {
     }
 
     @Test
-    void removeFirst() {
+    public void removeFirst() {
         assertThrows(NoSuchElementException.class, () -> fifo.removeFirst());
 
         // add 2 elements
@@ -77,7 +73,7 @@ class FIFOTest {
     }
 
     @Test
-    void size() {
+    public void size() {
 
         int size = 0;
         assertEquals(fifo.size(), size);

@@ -17,22 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @RunWith(Parameterized.class)
 class CalculsTest {
 
-    @BeforeEach
-    void setUp() throws Exception {
-    }
-
-    @AfterEach
-    void tearDown() throws Exception {
-    }
-
     @ParameterizedTest(name="Multiplication de {0} par {1}, resultat attendu {2}")
     @MethodSource("chargerTestMultiplier")
-    void multiplier(int first, int last, int result) {
+    public void multiplier(int first, int last, int result) {
         Calculs calculs = new Calculs(first,last);
         assertEquals(result,calculs.multiplier());
     }
 
-    static Stream<Arguments> chargerTestMultiplier() throws Throwable {
+    public static Stream<Arguments> chargerTestMultiplier() throws Throwable {
         return Stream.of(
                 Arguments.of(2,2,4),
                 Arguments.of(3,3,9),
@@ -40,7 +32,7 @@ class CalculsTest {
     }
 
     @Test
-    void additionner() {
+    public void additionner() {
         Calculs calculs = new Calculs(2,3);
         assertEquals(5,calculs.additionner());
 
@@ -49,7 +41,7 @@ class CalculsTest {
     }
 
     @Test
-    void diviser() {
+    public void diviser() {
         Calculs calculs = new Calculs(4,2);
         assertEquals(2,calculs.diviser());
 
@@ -58,7 +50,7 @@ class CalculsTest {
     }
 
     @Test
-    void soustraire() {
+    public void soustraire() {
         Calculs calculs = new Calculs(2,3);
         assertEquals(-1,calculs.soustraire());
 
