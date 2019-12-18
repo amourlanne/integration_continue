@@ -1,6 +1,4 @@
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -24,6 +22,7 @@ class CalculsTest {
         assertEquals(result,calculs.multiplier());
     }
 
+    @Parameterized.Parameters
     public static Stream<Arguments> multiplierGetSource() throws Throwable {
         return Stream.of(
                 Arguments.of(2,2,4),
