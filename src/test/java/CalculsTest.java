@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class CalculsTest {
 
     @ParameterizedTest(name="Multiplication de {0} par {1}, resultat attendu {2}")
-    @MethodSource("chargerTestMultiplier")
-    public static void multiplier(int first, int last, int result) {
+    @MethodSource("multiplierGetSource")
+    public void multiplier(int first, int last, int result) {
         Calculs calculs = new Calculs(first,last);
         assertEquals(result,calculs.multiplier());
     }
 
-    public static Stream<Arguments> chargerTestMultiplier() throws Throwable {
+    public static Stream<Arguments> multiplierGetSource() throws Throwable {
         return Stream.of(
                 Arguments.of(2,2,4),
                 Arguments.of(3,3,9),
